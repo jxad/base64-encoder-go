@@ -54,12 +54,14 @@ func EncodeToString(byteArray []byte) {
 	sEnc := b64.StdEncoding.EncodeToString(byteArray)
 	fmt.Print("\n")
 	fmt.Println(sEnc)
+	fmt.Print("\n")
 }
 
 func DecodeString(text string) {
 	sDec, _ := b64.StdEncoding.DecodeString(text)
 	fmt.Print("\n")
 	fmt.Println(sDec)
+	fmt.Print("\n")
 }
 
 func GetDataFromJson() Data {
