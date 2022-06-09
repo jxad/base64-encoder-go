@@ -15,7 +15,15 @@ type Data struct {
 	DecodeString string `json:"decode-string"`
 }
 
+const JSON_FILE = "data.json"
+
 func main() {
+	if _, err := os.Stat(JSON_FILE); err != nil {
+		emptyCollection := Data{}
+		file, _ := json.MarshalIndent(emptyCollection, "", " ")
+		_ = ioutil.WriteFile(JSON_FILE, file, 0644)
+	}
+
 	for {
 		var choices = []string{"Encode (byte to string)", "Decode (string to byte)"}
 
@@ -55,7 +63,7 @@ func DecodeString(text string) {
 }
 
 func GetDataFromJson() Data {
-	jsonFile, err := os.Open("data.json")
+	jsonFile, err := os.Open(JSON_FILE)
 	if err != nil {
 		fmt.Println(err)
 	}
