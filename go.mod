@@ -1,4 +1,4 @@
-module example.com/m/v2
+module base64-encoder
 
 go 1.18
 
