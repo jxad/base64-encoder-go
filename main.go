@@ -8,25 +8,27 @@ import (
 )
 
 func main() {
-	var choices = []string{"Encode (byte to string)", "Decode (string to byte)"}
+	for {
+		var choices = []string{"Encode (byte to string)", "Decode (string to byte)"}
 
-	prompt := promptui.Select{
-		Label: "Menu",
-		Items: choices,
-	}
+		prompt := promptui.Select{
+			Label: "Menu",
+			Items: choices,
+		}
 
-	_, result, err := prompt.Run()
+		_, result, err := prompt.Run()
 
-	if err != nil {
-		fmt.Printf("Prompt failed %v\n", err)
-		return
-	}
+		if err != nil {
+			fmt.Printf("Prompt failed %v\n", err)
+			return
+		}
 
-	switch result {
-	case choices[0]:
-		EncodeToString()
-	case choices[1]:
-		DecodeString()
+		switch result {
+		case choices[0]:
+			EncodeToString()
+		case choices[1]:
+			DecodeString()
+		}
 	}
 }
 
